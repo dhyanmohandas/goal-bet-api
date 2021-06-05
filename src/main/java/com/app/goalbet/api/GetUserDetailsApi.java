@@ -23,16 +23,16 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-05T16:10:01.194073500+05:30[Asia/Calcutta]")
-@Api(value = "goalBet", description = "the goalBet API")
-public interface GoalBetApi {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-06T01:14:35.552995200+05:30[Asia/Calcutta]")
+@Api(value = "getUserDetails", description = "the getUserDetails API")
+public interface GetUserDetailsApi {
 
-    @ApiOperation(value = "Returns a list of users data.", nickname = "goalBetGet", notes = "Optional extended description in CommonMark or HTML", response = UserData.class, responseContainer = "List", tags={ "UserData", })
+    @ApiOperation(value = "Returns a list of users data.", nickname = "getUserDetails", notes = "", response = UserData.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "A JSON array of user data", response = UserData.class, responseContainer = "List") })
-    @RequestMapping(value = "/goalBet",
+    @RequestMapping(value = "/getUserDetails",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<List<UserData>> goalBetGet();
+    ResponseEntity<List<UserData>> getUserDetails();
 
 }
