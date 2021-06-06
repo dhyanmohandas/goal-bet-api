@@ -3,19 +3,26 @@ package com.app.goalbet.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.goalbet.api.GetPredictionsApi;
 import com.app.goalbet.api.GetUserDetailsApi;
 import com.app.goalbet.api.InfoApi;
+import com.app.goalbet.api.PredictGoalApi;
+import com.app.goalbet.models.PredictionDetails;
 import com.app.goalbet.models.UserData;
+import com.app.goalbet.service.GoalBetService;
 
 
 @RestController
 @CrossOrigin
-public class GoalBetController implements GetUserDetailsApi, InfoApi{
+public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi{
 
 	@Override
 	 public ResponseEntity<List<UserData>> getUserDetails(){
@@ -38,10 +45,32 @@ public class GoalBetController implements GetUserDetailsApi, InfoApi{
 		 userList.add(ud4);
 		return new ResponseEntity<List<UserData>>(userList,HttpStatus.OK);
 	}
+	
+	@Autowired
+	GoalBetService goalBetService;
 
 	@Override
 	public ResponseEntity<String> getInfo() {
+		goalBetService.getPredictions();
 		return new ResponseEntity<String>("Goal-Bet Version1", HttpStatus.OK);
 	}
+
+	@Override
+	public ResponseEntity<String> predictGoalPost(@Valid PredictionDetails predictionDetails) {
+		goalBetService.insertPredictions(predictionDetails);
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<List<PredictionDetails>> getPredictions() {
+		List<PredictionDetails> predictions = new ArrayList<PredictionDetails>();
+		PredictionDetails p = new PredictionDetails();
+		p.setUserId(21);
+		predictions.add(p);
+		return new ResponseEntity<List<PredictionDetails>>(predictions,HttpStatus.OK);
+	}
+
+
+
 	
 }

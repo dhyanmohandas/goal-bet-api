@@ -5,6 +5,7 @@
  */
 package com.app.goalbet.api;
 
+import com.app.goalbet.models.PredictionDetails;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -23,15 +24,17 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-06T13:31:40.549315300+05:30[Asia/Calcutta]")
-@Api(value = "info", description = "the info API")
-public interface InfoApi {
+@Api(value = "predictGoal", description = "the predictGoal API")
+public interface PredictGoalApi {
 
-    @ApiOperation(value = "Return the info.", nickname = "getInfo", notes = "", response = String.class, tags={  })
+    @ApiOperation(value = "Add goal", nickname = "predictGoalPost", notes = "", response = String.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "return the info", response = String.class) })
-    @RequestMapping(value = "/info",
+        @ApiResponse(code = 200, message = "A JSON array of user data", response = String.class) })
+    @RequestMapping(value = "/predictGoal",
         produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    ResponseEntity<String> getInfo();
+        consumes = { "application/json" },
+        method = RequestMethod.POST)
+    ResponseEntity<String> predictGoalPost(@ApiParam(value = "Optional description in *Markdown*" ,required=true )  @Valid @RequestBody PredictionDetails body
+);
 
 }
