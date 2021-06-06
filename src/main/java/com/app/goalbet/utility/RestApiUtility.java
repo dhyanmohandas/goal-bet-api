@@ -37,6 +37,7 @@ public class RestApiUtility {
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		headers.set("Accept", "application/json");
 		headers.set("x-api-key", apiKey);
+		headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
 		return headers;
 	}
 }
