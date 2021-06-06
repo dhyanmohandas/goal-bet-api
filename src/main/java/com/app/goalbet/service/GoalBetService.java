@@ -1,6 +1,7 @@
 package com.app.goalbet.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.app.goalbet.helper.CollectionHelper;
@@ -17,8 +18,8 @@ public class GoalBetService {
 	PredictionScoreCalculator predictionScoreCalculator;
 	
 
-	public void getPredictions() {
-		collectionHelper.getPredictions("https://app.usecollection.co/store/LJYQDTQVK85N141Q6VVVN7JV1I192A", "910e061c-924c-4c74-8529-58c0f353299c");
+	public ResponseEntity<String> getPredictions() {
+		return collectionHelper.getPredictions("https://app.usecollection.co/store/LJYQDTQVK85N141Q6VVVN7JV1I192A", "910e061c-924c-4c74-8529-58c0f353299c");
 	}
 	
 	public void insertPredictions(PredictionDetails predictionDetails) {

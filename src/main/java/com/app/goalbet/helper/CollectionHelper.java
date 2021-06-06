@@ -18,19 +18,18 @@ public class CollectionHelper {
 		return "Success";		
 	}
 	
-	public String getPredictions(String url, String apiKey) {
+	public ResponseEntity<String> getPredictions(String url, String apiKey) {
 		System.out.println("Get Predictions from collection");
 		ResponseEntity<String> response = restApiUtility.getRestTemplateResponse(url, 
 				HttpMethod.GET, apiKey);
-		System.out.print(response);
-		return "Success";		
+		System.out.print(response);	
+		return response;
 	}
 	
-	public String insertPredictions(String url, String apiKey, PredictionDetails predictionDetails) {
+	public void insertPredictions(String url, String apiKey, PredictionDetails predictionDetails) {
 		System.out.println("Insert Predictions from collection");
 		ResponseEntity<String> response = restApiUtility.postRestTemplateResponse(url, 
 				HttpMethod.POST, apiKey, predictionDetails);
 		System.out.print(response);
-		return "Success";		
 	}
 }

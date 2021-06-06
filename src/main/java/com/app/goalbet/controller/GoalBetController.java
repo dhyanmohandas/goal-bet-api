@@ -62,12 +62,8 @@ public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoa
 	}
 
 	@Override
-	public ResponseEntity<List<PredictionDetails>> getPredictions() {
-		List<PredictionDetails> predictions = new ArrayList<PredictionDetails>();
-		PredictionDetails p = new PredictionDetails();
-		p.setUserId(21);
-		predictions.add(p);
-		return new ResponseEntity<List<PredictionDetails>>(predictions,HttpStatus.OK);
+	public ResponseEntity<String> getPredictions() {
+		return goalBetService.getPredictions();
 	}
 
 

@@ -5,7 +5,6 @@
  */
 package com.app.goalbet.api;
 
-import com.app.goalbet.models.PredictionDetails;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -23,16 +22,16 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-06T13:31:40.549315300+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-06T16:02:24.027922400+05:30[Asia/Calcutta]")
 @Api(value = "getPredictions", description = "the getPredictions API")
 public interface GetPredictionsApi {
 
-    @ApiOperation(value = "Returns a list of users data.", nickname = "getPredictions", notes = "", response = PredictionDetails.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "Returns a list of users data.", nickname = "getPredictions", notes = "", response = String.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "A JSON array of user data", response = PredictionDetails.class, responseContainer = "List") })
+        @ApiResponse(code = 200, message = "A JSON array of user data", response = String.class) })
     @RequestMapping(value = "/getPredictions",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<List<PredictionDetails>> getPredictions();
+    ResponseEntity<String> getPredictions();
 
 }
