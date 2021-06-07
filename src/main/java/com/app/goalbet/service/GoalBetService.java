@@ -27,5 +27,9 @@ public class GoalBetService {
 		collectionHelper.insertPredictions("https://app.usecollection.co/store/LJYQDTQVK85N141Q6VVVN7JV1I192A", "910e061c-924c-4c74-8529-58c0f353299c", predictionDetails);
 		
 	}
+	
+	public ResponseEntity<String> getNextMatchDetails() {
+		return collectionHelper.getPredictions("https://app.usecollection.co/store/0EYRXTAWMJPA8S8HS5TKW2W5EWN24R", "c75c3cfc-0318-446b-b909-0428806bd68d");
+	}
 
 }

@@ -23,15 +23,15 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-07T23:23:04.320679200+05:30[Asia/Calcutta]")
-@Api(value = "info", description = "the info API")
-public interface InfoApi {
+@Api(value = "getNextMatchDetails", description = "the getNextMatchDetails API")
+public interface GetNextMatchDetailsApi {
 
-    @ApiOperation(value = "Return the info.", nickname = "getInfo", notes = "", response = String.class, tags={  })
+    @ApiOperation(value = "returns Next Match Details", nickname = "getNextMatchDetails", notes = "", response = String.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "return the info", response = String.class) })
-    @RequestMapping(value = "/info",
+        @ApiResponse(code = 200, message = "get Next Match Details", response = String.class) })
+    @RequestMapping(value = "/getNextMatchDetails",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<String> getInfo();
+    ResponseEntity<String> getNextMatchDetails();
 
 }
