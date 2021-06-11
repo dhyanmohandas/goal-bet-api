@@ -22,7 +22,6 @@ import com.app.goalbet.service.GoalBetService;
 
 
 @RestController
-@CrossOrigin
 public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi{
 
 	@Override

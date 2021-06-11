@@ -19,6 +19,8 @@ import javax.net.ssl.SSLContext;
 
 import com.app.goalbet.models.PredictionDetails;
 
+import jdk.internal.org.jline.utils.Log;
+
 @Component
 public class RestApiUtility {
 	public ResponseEntity<String> getRestTemplateResponse(String url, HttpMethod httpMethod, String apiKey) {
@@ -53,8 +55,6 @@ public class RestApiUtility {
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		headers.set("Accept", "application/json");
 		headers.set("x-api-key", apiKey);
-		headers.add("user-agent",
-				"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
 		return headers;
 	}
 }
