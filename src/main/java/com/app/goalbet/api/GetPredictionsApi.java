@@ -22,13 +22,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-06T21:22:31.492762200+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-12T00:07:32.114442800+05:30[Asia/Calcutta]")
 @Api(value = "getPredictions", description = "the getPredictions API")
 public interface GetPredictionsApi {
 
-    @ApiOperation(value = "Returns a list of users data.", nickname = "getPredictions", notes = "", response = String.class, tags={  })
+    @ApiOperation(value = "Returns a list of predictions.", nickname = "getPredictions", notes = "", response = String.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "A JSON array of user data", response = String.class) })
+        @ApiResponse(code = 200, message = "get Predictions", response = String.class) })
     @RequestMapping(value = "/getPredictions",
         produces = { "application/json" }, 
         method = RequestMethod.GET)

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.goalbet.api.GetNextMatchDetailsApi;
 import com.app.goalbet.api.GetPredictionsApi;
 import com.app.goalbet.api.GetUserDetailsApi;
 import com.app.goalbet.api.InfoApi;
@@ -21,8 +22,7 @@ import com.app.goalbet.service.GoalBetService;
 
 
 @RestController
-@CrossOrigin
-public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi{
+public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi{
 
 	@Override
 	 public ResponseEntity<List<UserData>> getUserDetails(){
@@ -51,7 +51,6 @@ public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoa
 
 	@Override
 	public ResponseEntity<String> getInfo() {
-		goalBetService.getPredictions();
 		return new ResponseEntity<String>("Goal-Bet Version1", HttpStatus.OK);
 	}
 
@@ -64,6 +63,11 @@ public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoa
 	@Override
 	public ResponseEntity<String> getPredictions() {
 		return goalBetService.getPredictions();
+	}
+
+	@Override
+	public ResponseEntity<String> getNextMatchDetails() {
+		return goalBetService.getNextMatchDetails();
 	}
 
 

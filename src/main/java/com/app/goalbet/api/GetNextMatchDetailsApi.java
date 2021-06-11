@@ -5,7 +5,6 @@
  */
 package com.app.goalbet.api;
 
-import com.app.goalbet.models.UserData;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -24,15 +23,15 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-12T00:07:32.114442800+05:30[Asia/Calcutta]")
-@Api(value = "getUserDetails", description = "the getUserDetails API")
-public interface GetUserDetailsApi {
+@Api(value = "getNextMatchDetails", description = "the getNextMatchDetails API")
+public interface GetNextMatchDetailsApi {
 
-    @ApiOperation(value = "Returns a list of users data.", nickname = "getUserDetails", notes = "", response = UserData.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "returns Next Match Details", nickname = "getNextMatchDetails", notes = "", response = String.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "A JSON array of user data", response = UserData.class, responseContainer = "List") })
-    @RequestMapping(value = "/getUserDetails",
+        @ApiResponse(code = 200, message = "get Next Match Details", response = String.class) })
+    @RequestMapping(value = "/getNextMatchDetails",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<List<UserData>> getUserDetails();
+    ResponseEntity<String> getNextMatchDetails();
 
 }

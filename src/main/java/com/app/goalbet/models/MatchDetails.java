@@ -13,18 +13,24 @@ import javax.validation.constraints.*;
  * MatchDetails
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-06T12:05:41.300588700+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-12T00:07:32.114442800+05:30[Asia/Calcutta]")
 public class MatchDetails   {
   @JsonProperty("matchId")
-  private Integer matchId = null;
+  private String matchId = null;
 
-  @JsonProperty("userId")
-  private Integer userId = null;
+  @JsonProperty("team1")
+  private Integer team1 = null;
 
-  @JsonProperty("goalDetails")
-  private String goalDetails = null;
+  @JsonProperty("team2")
+  private Integer team2 = null;
 
-  public MatchDetails matchId(Integer matchId) {
+  @JsonProperty("time")
+  private String time = null;
+
+  @JsonProperty("stadium")
+  private String stadium = null;
+
+  public MatchDetails matchId(String matchId) {
     this.matchId = matchId;
     return this;
   }
@@ -35,50 +41,88 @@ public class MatchDetails   {
   **/
   @ApiModelProperty(value = "")
   
-    public Integer getMatchId() {
+    public String getMatchId() {
     return matchId;
   }
 
-  public void setMatchId(Integer matchId) {
+  public void setMatchId(String matchId) {
     this.matchId = matchId;
   }
 
-  public MatchDetails userId(Integer userId) {
-    this.userId = userId;
+  public MatchDetails team1(Integer team1) {
+    this.team1 = team1;
     return this;
   }
 
   /**
-   * Get userId
-   * @return userId
+   * Get team1
+   * @return team1
   **/
   @ApiModelProperty(value = "")
   
-    public Integer getUserId() {
-    return userId;
+    public Integer getTeam1() {
+    return team1;
   }
 
-  public void setUserId(Integer userId) {
-    this.userId = userId;
+  public void setTeam1(Integer team1) {
+    this.team1 = team1;
   }
 
-  public MatchDetails goalDetails(String goalDetails) {
-    this.goalDetails = goalDetails;
+  public MatchDetails team2(Integer team2) {
+    this.team2 = team2;
     return this;
   }
 
   /**
-   * Get goalDetails
-   * @return goalDetails
+   * Get team2
+   * @return team2
   **/
   @ApiModelProperty(value = "")
   
-    public String getGoalDetails() {
-    return goalDetails;
+    public Integer getTeam2() {
+    return team2;
   }
 
-  public void setGoalDetails(String goalDetails) {
-    this.goalDetails = goalDetails;
+  public void setTeam2(Integer team2) {
+    this.team2 = team2;
+  }
+
+  public MatchDetails time(String time) {
+    this.time = time;
+    return this;
+  }
+
+  /**
+   * Get time
+   * @return time
+  **/
+  @ApiModelProperty(value = "")
+  
+    public String getTime() {
+    return time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
+  }
+
+  public MatchDetails stadium(String stadium) {
+    this.stadium = stadium;
+    return this;
+  }
+
+  /**
+   * Get stadium
+   * @return stadium
+  **/
+  @ApiModelProperty(value = "")
+  
+    public String getStadium() {
+    return stadium;
+  }
+
+  public void setStadium(String stadium) {
+    this.stadium = stadium;
   }
 
 
@@ -92,13 +136,15 @@ public class MatchDetails   {
     }
     MatchDetails matchDetails = (MatchDetails) o;
     return Objects.equals(this.matchId, matchDetails.matchId) &&
-        Objects.equals(this.userId, matchDetails.userId) &&
-        Objects.equals(this.goalDetails, matchDetails.goalDetails);
+        Objects.equals(this.team1, matchDetails.team1) &&
+        Objects.equals(this.team2, matchDetails.team2) &&
+        Objects.equals(this.time, matchDetails.time) &&
+        Objects.equals(this.stadium, matchDetails.stadium);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(matchId, userId, goalDetails);
+    return Objects.hash(matchId, team1, team2, time, stadium);
   }
 
   @Override
@@ -107,8 +153,10 @@ public class MatchDetails   {
     sb.append("class MatchDetails {\n");
     
     sb.append("    matchId: ").append(toIndentedString(matchId)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    goalDetails: ").append(toIndentedString(goalDetails)).append("\n");
+    sb.append("    team1: ").append(toIndentedString(team1)).append("\n");
+    sb.append("    team2: ").append(toIndentedString(team2)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    stadium: ").append(toIndentedString(stadium)).append("\n");
     sb.append("}");
     return sb.toString();
   }
