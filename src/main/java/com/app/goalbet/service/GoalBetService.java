@@ -1,6 +1,8 @@
 package com.app.goalbet.service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,9 @@ public class GoalBetService {
 	}
 	
 	public void insertPredictions(PredictionDetails predictionDetails) {
+		String url = UtilityFunctions.addQueryParam(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID, "matchId", predictionDetails.getMatchId());
+		ResponseEntity<String> r = collectionHelper.getPredictions(url + "&userId=" + predictionDetails.getUserId(), CommonConstants.PREDICTION_API_KEY);
+		System.out.println(r);
 		collectionHelper.insertPredictions(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID, CommonConstants.PREDICTION_API_KEY, predictionDetails);
 		
 	}
@@ -33,8 +38,7 @@ public class GoalBetService {
 		return collectionHelper.getPredictions(url, CommonConstants.MATCH_API_KEY);
 	}
 	
-	public String calculateScore(String matchId, int team1Goals, int team2Goals) {
-		
+	public String calculateScore(String matchId, int team1Goals, int team2Goals) {		
 		return "success";		
 	}
 	
