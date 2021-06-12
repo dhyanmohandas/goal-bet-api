@@ -45,4 +45,45 @@ public class PredictionScoreCalculator {
 		
 	}
 
+
+	public static double calculateSD(float numArray[])
+    {
+        double sum = 0.0, standardDeviation = 0.0;
+        int length = numArray.length;
+
+        for(double num : numArray) {
+            sum += num;
+        }
+
+        double mean = sum/length;
+
+        for(double num: numArray) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+
+        return Math.sqrt(standardDeviation/length);
+    }
+
+	public int calculateMedian(float losses[]) {
+		Arrays.sort(losses);
+		double median;
+		if (losses.length % 2 == 0)
+		    median = ((double)losses[losses.length/2] + (double)losses[losses.length/2 - 1])/2;
+		else
+		    median = (double) losses[losses.length/2];
+
+		return median;
+	}
+
+	public int[] calculateScore(float losses[]){
+		int median = calculateMedian(losses);
+		int standardDeviation = calculateSD(losses);
+		for (i=0; i<losses.length; i++) {
+		  losses[i] = (median - losses[i]) / standardDeviation;
+		}
+		return losses;
+	}
+
+
+
 }
