@@ -19,4 +19,7 @@ public class CommonConstants {
 	public static final String USER_STORE_ID = "0EYRXTAWMJPA8S8HS5TKW2W5EWN24R";
 	
 	public static final String USER_API_KEY = "c75c3cfc-0318-446b-b909-0428806bd68d";
+	
+	
+	public static final int PENALTY_FOR_INCORRECTNESS = 5;
 }

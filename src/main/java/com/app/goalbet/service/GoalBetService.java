@@ -1,14 +1,12 @@
 package com.app.goalbet.service;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.app.goalbet.helper.CollectionHelper;
-import com.app.goalbet.helper.PredictionScoreCalculator;
 import com.app.goalbet.models.PredictionDetails;
 import com.app.goalbet.utility.CommonConstants;
 import com.app.goalbet.utility.UtilityFunctions;
@@ -19,16 +17,12 @@ public class GoalBetService {
 	@Autowired
 	CollectionHelper collectionHelper;
 	
-	@Autowired
-	PredictionScoreCalculator predictionScoreCalculator;
-	
 
 	public ResponseEntity<String> getPredictions() {
 		return collectionHelper.getPredictions(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID, CommonConstants.PREDICTION_API_KEY);
 	}
 	
 	public void insertPredictions(PredictionDetails predictionDetails) {
-		predictionScoreCalculator.calculate(predictionDetails.getTeamGoals1(), predictionDetails.getTeamGoals2());
 		collectionHelper.insertPredictions(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID, CommonConstants.PREDICTION_API_KEY, predictionDetails);
 		
 	}
