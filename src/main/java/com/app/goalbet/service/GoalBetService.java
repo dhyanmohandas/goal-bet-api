@@ -29,7 +29,7 @@ public class GoalBetService {
 	
 	public ResponseEntity<String> getNextMatchDetails() {
 		LocalDate lt = LocalDate.now();
-		String url = UtilityFunctions.addQueryParam(CommonConstants.DB_BASE_URL + CommonConstants.MATCH_STORE_ID, "Date" , lt.plusDays(1).toString());
+		String url = UtilityFunctions.addQueryParam(CommonConstants.DB_BASE_URL + CommonConstants.MATCH_STORE_ID, "Date" , lt.toString());
 		return collectionHelper.getPredictions(url, CommonConstants.MATCH_API_KEY);
 	}
 	
