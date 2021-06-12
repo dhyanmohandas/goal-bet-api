@@ -24,12 +24,12 @@ public class GoalBetService {
 	
 
 	public ResponseEntity<String> getPredictions() {
-		return collectionHelper.getPredictions("https://app.usecollection.co/store/LJYQDTQVK85N141Q6VVVN7JV1I192A", "910e061c-924c-4c74-8529-58c0f353299c");
+		return collectionHelper.getPredictions(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID, CommonConstants.PREDICTION_API_KEY);
 	}
 	
 	public void insertPredictions(PredictionDetails predictionDetails) {
 		predictionScoreCalculator.calculate(predictionDetails.getTeamGoals1(), predictionDetails.getTeamGoals2());
-		collectionHelper.insertPredictions("https://app.usecollection.co/store/LJYQDTQVK85N141Q6VVVN7JV1I192A", "910e061c-924c-4c74-8529-58c0f353299c", predictionDetails);
+		collectionHelper.insertPredictions(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID, CommonConstants.PREDICTION_API_KEY, predictionDetails);
 		
 	}
 	
