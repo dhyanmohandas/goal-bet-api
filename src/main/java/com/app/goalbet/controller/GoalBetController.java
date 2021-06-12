@@ -22,7 +22,6 @@ import com.app.goalbet.service.GoalBetService;
 
 
 @RestController
-@CrossOrigin
 public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi{
 
 	@Override
@@ -56,6 +55,7 @@ public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoa
 	}
 
 	@Override
+	@CrossOrigin
 	public ResponseEntity<String> predictGoalPost(@Valid PredictionDetails predictionDetails) {
 		goalBetService.insertPredictions(predictionDetails);
 		return new ResponseEntity<String>(HttpStatus.OK);
