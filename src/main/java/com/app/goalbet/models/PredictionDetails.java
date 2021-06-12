@@ -13,13 +13,13 @@ import javax.validation.constraints.*;
  * PredictionDetails
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-12T13:28:53.988194700+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-12T21:53:00.279307600+05:30[Asia/Calcutta]")
 public class PredictionDetails   {
   @JsonProperty("matchId")
-  private Integer matchId = null;
+  private String matchId = null;
 
   @JsonProperty("userId")
-  private Integer userId = null;
+  private String userId = null;
 
   @JsonProperty("teamGoals1")
   private Integer teamGoals1 = null;
@@ -27,7 +27,7 @@ public class PredictionDetails   {
   @JsonProperty("teamGoals2")
   private Integer teamGoals2 = null;
 
-  public PredictionDetails matchId(Integer matchId) {
+  public PredictionDetails matchId(String matchId) {
     this.matchId = matchId;
     return this;
   }
@@ -38,15 +38,15 @@ public class PredictionDetails   {
   **/
   @ApiModelProperty(value = "")
   
-    public Integer getMatchId() {
+    public String getMatchId() {
     return matchId;
   }
 
-  public void setMatchId(Integer matchId) {
+  public void setMatchId(String matchId) {
     this.matchId = matchId;
   }
 
-  public PredictionDetails userId(Integer userId) {
+  public PredictionDetails userId(String userId) {
     this.userId = userId;
     return this;
   }
@@ -57,11 +57,11 @@ public class PredictionDetails   {
   **/
   @ApiModelProperty(value = "")
   
-    public Integer getUserId() {
+    public String getUserId() {
     return userId;
   }
 
-  public void setUserId(Integer userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 

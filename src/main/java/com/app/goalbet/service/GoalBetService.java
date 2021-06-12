@@ -32,5 +32,15 @@ public class GoalBetService {
 		String url = UtilityFunctions.addQueryParam(CommonConstants.DB_BASE_URL + CommonConstants.MATCH_STORE_ID, "Date" , lt.plusDays(1).toString());
 		return collectionHelper.getPredictions(url, CommonConstants.MATCH_API_KEY);
 	}
+	
+	public String calculateScore(String matchId, int team1Goals, int team2Goals) {
+		
+		return "success";		
+	}
+	
+	public ResponseEntity<String> getUserDetails(String userId) {
+		String url = UtilityFunctions.addQueryIdentifier(CommonConstants.DB_BASE_URL + CommonConstants.USER_STORE_ID , userId);
+		return collectionHelper.getPredictions(url, CommonConstants.USER_API_KEY);
+	}
 
 }

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.goalbet.api.CalculateScoreApi;
 import com.app.goalbet.api.GetNextMatchDetailsApi;
 import com.app.goalbet.api.GetPredictionsApi;
 import com.app.goalbet.api.GetUserDetailsApi;
@@ -22,27 +23,12 @@ import com.app.goalbet.service.GoalBetService;
 
 
 @RestController
-public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi{
+public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi{
 
 	@Override
 	 public ResponseEntity<List<UserData>> getUserDetails(){
 		 List<UserData> userList = new ArrayList<UserData>();
-		 UserData ud1 = new UserData();
-		 ud1.setId(2);
-		 ud1.setName("Vishak");
-		 userList.add(ud1);
-		 UserData ud2 = new UserData();
-		 ud2.setId(4);
-		 ud2.setName("Yuvraj");
-		 userList.add(ud2);
-		 UserData ud3 = new UserData();
-		 ud3.setId(5);		 
-		 ud3.setName("Ramu");
-		 userList.add(ud3);
-		 UserData ud4 = new UserData();
-		 ud4.setId(7);
-		 ud4.setName("Barko");
-		 userList.add(ud4);
+		 goalBetService.getUserDetails("60c497d27280b3001b12c339");
 		return new ResponseEntity<List<UserData>>(userList,HttpStatus.OK);
 	}
 	
@@ -71,6 +57,10 @@ public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoa
 		return goalBetService.getNextMatchDetails();
 	}
 
+	@Override
+	public ResponseEntity<String> calculateScore(@Valid String matchId, @Valid Integer team1, @Valid Integer team2) {
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
 
 
 	

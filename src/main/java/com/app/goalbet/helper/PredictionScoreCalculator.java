@@ -1,5 +1,8 @@
 package com.app.goalbet.helper;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import org.springframework.stereotype.Component;
 
 import com.app.goalbet.utility.CommonConstants;
@@ -18,7 +21,7 @@ public class PredictionScoreCalculator {
 		return false;
 	}
 	
-	public int calculate(int originalGoal1, int originalGoal2, int predictedGoal1, int predictedGoal2) {
+	public int calculateLoss(int originalGoal1, int originalGoal2, int predictedGoal1, int predictedGoal2) {
 		int loss = 0;
 		loss = Math.abs(originalGoal1 - predictedGoal1) + Math.abs(originalGoal2 - predictedGoal2) + Math.abs((originalGoal1 - originalGoal2) - (predictedGoal1 - predictedGoal2));
 
@@ -27,6 +30,19 @@ public class PredictionScoreCalculator {
 			loss = loss + CommonConstants.PENALTY_FOR_INCORRECTNESS;
 		}
 		return loss;
+	}
+	
+	
+	public int calculateMedian(int[] loss) {	
+		Arrays.sort(loss);
+		double median;
+		if (loss.length % 2 == 0)
+		    median = ((double)loss[loss.length/2] + (double)loss[loss.length/2 - 1])/2;
+		else
+		    median = (double) loss[loss.length/2];
+				
+		return 0;
+		
 	}
 
 }

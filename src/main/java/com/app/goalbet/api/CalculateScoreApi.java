@@ -23,15 +23,18 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-12T21:53:00.279307600+05:30[Asia/Calcutta]")
-@Api(value = "getPredictions", description = "the getPredictions API")
-public interface GetPredictionsApi {
+@Api(value = "calculateScore", description = "the calculateScore API")
+public interface CalculateScoreApi {
 
-    @ApiOperation(value = "Returns a list of predictions.", nickname = "getPredictions", notes = "", response = String.class, tags={  })
+    @ApiOperation(value = "Calculate match scores.", nickname = "calculateScore", notes = "", response = String.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "get Predictions", response = String.class) })
-    @RequestMapping(value = "/getPredictions",
+        @ApiResponse(code = 200, message = "A JSON array of user data", response = String.class) })
+    @RequestMapping(value = "/calculateScore",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<String> getPredictions();
+    ResponseEntity<String> calculateScore(@ApiParam(value = "") @Valid @RequestParam(value = "matchId", required = false) String matchId
+,@ApiParam(value = "") @Valid @RequestParam(value = "team1", required = false) Integer team1
+,@ApiParam(value = "") @Valid @RequestParam(value = "team2", required = false) Integer team2
+);
 
 }
