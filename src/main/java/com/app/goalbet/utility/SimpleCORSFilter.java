@@ -28,21 +28,16 @@ public class SimpleCORSFilter implements Filter {
 
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
-		log.info(request.toString());
-		log.info(response.getHeaderNames().toString());
-		log.info(response.getHeaderNames().toString());
-		response.reset();
-//		if(!response.containsHeader("Access-Control-Allow-Origin")&&!response.containsHeader("access-control-allow-origin"))
-//		{   log.info("----------Access-Control-Allow-Origin---------------");
-//		    response.addHeader("Access-Control-Allow-Origin", "*"); 
-//		}
-		response.addHeader("Access-Control-Allow-Origin", "*"); 
-		response.setHeader("Access-Control-Allow-Credentials", "true");
-		response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-		response.setHeader("Access-Control-Max-Age", "3600");
-		response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
+		if (!response.containsHeader("Access-Control-Allow-Origin")) {
+			log.info("------------------------");
+//			response.addHeader("Access-Control-Allow-Origin", "*");
+			response.setHeader("Access-Control-Allow-Credentials", "true");
+			response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+			response.setHeader("Access-Control-Max-Age", "3600");
+			response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
 
-		chain.doFilter(req, res);
+			chain.doFilter(req, res);
+		}
 	}
 
 	@Override
@@ -52,7 +47,5 @@ public class SimpleCORSFilter implements Filter {
 	@Override
 	public void destroy() {
 	}
-	
-	
 
 }

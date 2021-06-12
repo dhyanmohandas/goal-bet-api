@@ -55,6 +55,7 @@ public class GoalBetController implements GetUserDetailsApi, InfoApi, PredictGoa
 	}
 
 	@Override
+	@CrossOrigin
 	public ResponseEntity<String> predictGoalPost(@Valid PredictionDetails predictionDetails) {
 		goalBetService.insertPredictions(predictionDetails);
 		return new ResponseEntity<String>(HttpStatus.OK);
