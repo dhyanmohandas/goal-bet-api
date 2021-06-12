@@ -11,4 +11,15 @@ public class CommonConstants {
 	public static final String MATCH_STORE_ID = "0EYRXTAWMJPA8S8HS5TKW2W5EWN24R";
 	
 	public static final String MATCH_API_KEY = "c75c3cfc-0318-446b-b909-0428806bd68d";
+	
+	public static final String PREDICTION_STORE_ID = "LJYQDTQVK85N141Q6VVVN7JV1I192A";
+	
+	public static final String PREDICTION_API_KEY = "910e061c-924c-4c74-8529-58c0f353299c";
+	
+	public static final String USER_STORE_ID = "LGX29PUYEZ3LAIACEA041SX2Y87DRW";
+	
+	public static final String USER_API_KEY = "2d3552ad-acc6-470f-9b88-35074a014507";
+	
+	
+	public static final int PENALTY_FOR_INCORRECTNESS = 5;
 }

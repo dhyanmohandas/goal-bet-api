@@ -6,5 +6,10 @@ public class UtilityFunctions {
 		String resultUrl = url + "?" + param + "=" + value;
 		return resultUrl;
 	}
+	
+	public static String addQueryIdentifier(String url, String value) {
+		String resultUrl = url + "/identifier" + "/" + value;
+		return resultUrl;
+	}
 
 }

@@ -47,7 +47,31 @@ paths:
             application/json:
               schema: 
                 type: string
-                
+  /calculateScore:
+    get:
+      summary: Calculate match scores.
+      operationId: calculateScore
+      parameters:
+        - in: query
+          name: matchId
+          schema:
+            type: string
+        - in: query
+          name: team1
+          schema:
+            type: integer
+        - in: query
+          name: team2
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A JSON array of user data
+          content:
+            application/json:
+              schema: 
+                type: string
+            
   /getPredictions:
     get:
       summary: Returns a list of predictions.
@@ -78,9 +102,9 @@ components:
     PredictionDetails:
       properties:
         matchId:
-          type: integer
+          type: string
         userId:
-          type: integer
+          type: string
         teamGoals1:
           type: integer          
         teamGoals2:
