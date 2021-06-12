@@ -64,7 +64,7 @@ public class PredictionScoreCalculator {
         return Math.sqrt(standardDeviation/length);
     }
 
-	public int calculateMedian(float losses[]) {
+	public double calculateMedian(float losses[]) {
 		Arrays.sort(losses);
 		double median;
 		if (losses.length % 2 == 0)
@@ -75,12 +75,12 @@ public class PredictionScoreCalculator {
 		return median;
 	}
 
-	public int[] calculateScore(float losses[]){
-		int median = calculateMedian(losses);
-		int standardDeviation = calculateSD(losses);
-		for (i=0; i<losses.length; i++) {
-		  losses[i] = (median - losses[i]) / standardDeviation;
-		}
+	public float[] calculateScore(float[] losses){
+		double median = calculateMedian(losses);
+//		int standardDeviation = calculateSD(losses);
+//		for (int i=0; i<losses.length; i++) {
+//		  losses[i] = (median - losses[i]) / standardDeviation;
+//		}
 		return losses;
 	}
 
