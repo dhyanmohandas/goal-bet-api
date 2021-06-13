@@ -23,15 +23,16 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-13T23:25:56.326263500+05:30[Asia/Calcutta]")
-@Api(value = "info", description = "the info API")
-public interface InfoApi {
+@Api(value = "validateUserPrediction", description = "the validateUserPrediction API")
+public interface ValidateUserPredictionApi {
 
-    @ApiOperation(value = "Return the info.", nickname = "getInfo", notes = "", response = String.class, tags={  })
+    @ApiOperation(value = "validate User Prediction.", nickname = "validateUserPrediction", notes = "", response = String.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "return the info", response = String.class) })
-    @RequestMapping(value = "/info",
+        @ApiResponse(code = 200, message = "validated User Prediction", response = String.class) })
+    @RequestMapping(value = "/validateUserPrediction",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<String> getInfo();
+    ResponseEntity<String> validateUserPrediction(@ApiParam(value = "") @Valid @RequestParam(value = "userId", required = false) String userId
+);
 
 }

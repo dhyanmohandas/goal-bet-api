@@ -17,6 +17,7 @@ import com.app.goalbet.api.GetPredictionsApi;
 import com.app.goalbet.api.GetUserDetailsApi;
 import com.app.goalbet.api.InfoApi;
 import com.app.goalbet.api.PredictGoalApi;
+import com.app.goalbet.api.ValidateUserPredictionApi;
 import com.app.goalbet.models.ApiResponse;
 import com.app.goalbet.models.ApiResult;
 import com.app.goalbet.models.MatchPredictions;
@@ -26,7 +27,7 @@ import com.app.goalbet.service.GoalBetService;
 
 
 @RestController
-public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi {
+public class GoalBetController implements ValidateUserPredictionApi, CalculateScoreApi, GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi {
 
 	@Override
 	 public ResponseEntity<List<UserData>> getUserDetails(){
@@ -65,6 +66,12 @@ public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, 
 	public ResponseEntity<ApiResult> calculateScore(@Valid String matchId, @Valid Integer team1, @Valid Integer team2) {
 		return new ResponseEntity<ApiResult>(HttpStatus.OK);
 	}
+
+	@Override
+	public ResponseEntity<String> validateUserPrediction(@Valid String userId) {
+		return goalBetService.validateUserPrediction(userId);
+	}
+
 
 
 	

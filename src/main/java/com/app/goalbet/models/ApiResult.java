@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * ApiResult
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-13T21:55:54.907764200+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-13T23:25:56.326263500+05:30[Asia/Calcutta]")
 public class ApiResult   {
   @JsonProperty("status")
   private Integer status = null;

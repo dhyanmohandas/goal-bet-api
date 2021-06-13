@@ -42,6 +42,7 @@ public class GoalBetService {
 			String url = UtilityFunctions.addQueryParam(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID,
 					"matchId",BeanUtils.getProperty(matchDetails.getBody().getData().get(i),"_id"));
 			ResponseEntity<ApiResult> predictions = collectionHelper.getAPIResponse(url, CommonConstants.PREDICTION_API_KEY);
+				
 			MatchPredictions matchPrediction = new MatchPredictions();
 			matchPrediction.setMatch(matchDetails.getBody().getData().get(i));
 			matchPrediction.setPredictions(predictions.getBody().getData());
@@ -80,5 +81,29 @@ public class GoalBetService {
 		String url = UtilityFunctions.addQueryIdentifier(CommonConstants.DB_BASE_URL + CommonConstants.USER_STORE_ID , userId);
 		return collectionHelper.getAPI(url, CommonConstants.USER_API_KEY);
 	}
+	
+	public ResponseEntity<String> validateUserPrediction(String userId) {
+		String result = "";
+		ResponseEntity<ApiResult> matchDetails = getNextMatchDetails();
+
+		for (int i = 0; i < matchDetails.getBody().getData().size(); i++) {
+			try {
+			String url = UtilityFunctions.addQueryParam(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID,
+					"matchId",BeanUtils.getProperty(matchDetails.getBody().getData().get(i),"_id"));
+			ResponseEntity<ApiResult> predictions = collectionHelper.getAPIResponse(url + "&userId=" + userId, CommonConstants.PREDICTION_API_KEY);
+			System.out.print("=========================");
+			System.out.print(predictions.getBody().getData().toString());
+			if(predictions.getBody().getData().size()==0) {
+				return new ResponseEntity<String>(HttpStatus.FORBIDDEN);
+			}
+
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
+		return ResponseEntity.ok("Success");
+	}
+
 
 }
