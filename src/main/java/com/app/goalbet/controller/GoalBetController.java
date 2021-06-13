@@ -51,6 +51,7 @@ public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, 
 	}
 
 	@Override
+	@CrossOrigin
 	public ResponseEntity<List<MatchPredictions>> getPredictions() {
 		return goalBetService.getPredictions();
 	}
