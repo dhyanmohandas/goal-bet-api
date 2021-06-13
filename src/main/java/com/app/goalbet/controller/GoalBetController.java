@@ -68,6 +68,7 @@ public class GoalBetController implements ValidateUserPredictionApi, CalculateSc
 	}
 
 	@Override
+	@CrossOrigin
 	public ResponseEntity<String> validateUserPrediction(@Valid String userId) {
 		return goalBetService.validateUserPrediction(userId);
 	}
