@@ -5,6 +5,7 @@
  */
 package com.app.goalbet.api;
 
+import com.app.goalbet.models.ApiResult;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -22,16 +23,16 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-12T21:56:24.391465100+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-14T00:11:38.553612300+05:30[Asia/Calcutta]")
 @Api(value = "getNextMatchDetails", description = "the getNextMatchDetails API")
 public interface GetNextMatchDetailsApi {
 
-    @ApiOperation(value = "returns Next Match Details", nickname = "getNextMatchDetails", notes = "", response = String.class, tags={  })
+    @ApiOperation(value = "returns Next Match Details", nickname = "getNextMatchDetails", notes = "", response = ApiResult.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "get Next Match Details", response = String.class) })
+        @ApiResponse(code = 200, message = "get Next Match Details", response = ApiResult.class) })
     @RequestMapping(value = "/getNextMatchDetails",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<String> getNextMatchDetails();
+    ResponseEntity<ApiResult> getNextMatchDetails();
 
 }

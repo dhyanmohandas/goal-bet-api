@@ -5,60 +5,69 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * UserData
+ * ApiResult
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-14T00:11:38.553612300+05:30[Asia/Calcutta]")
-public class UserData   {
-  @JsonProperty("id")
-  private Integer id = null;
+public class ApiResult   {
+  @JsonProperty("status")
+  private Integer status = null;
 
-  @JsonProperty("name")
-  private String name = null;
+  @JsonProperty("data")
+  @Valid
+  private List<Object> data = null;
 
-  public UserData id(Integer id) {
-    this.id = id;
+  public ApiResult status(Integer status) {
+    this.status = status;
     return this;
   }
 
   /**
-   * Get id
-   * @return id
+   * Get status
+   * @return status
   **/
-  @ApiModelProperty(required = true, value = "")
-      @NotNull
-
-    public Integer getId() {
-    return id;
+  @ApiModelProperty(value = "")
+  
+    public Integer getStatus() {
+    return status;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setStatus(Integer status) {
+    this.status = status;
   }
 
-  public UserData name(String name) {
-    this.name = name;
+  public ApiResult data(List<Object> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ApiResult addDataItem(Object dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<Object>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
   /**
-   * Get name
-   * @return name
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
-      @NotNull
-
-    public String getName() {
-    return name;
+  @ApiModelProperty(value = "")
+  
+    public List<Object> getData() {
+    return data;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setData(List<Object> data) {
+    this.data = data;
   }
 
 
@@ -70,23 +79,23 @@ public class UserData   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserData userData = (UserData) o;
-    return Objects.equals(this.id, userData.id) &&
-        Objects.equals(this.name, userData.name);
+    ApiResult apiResult = (ApiResult) o;
+    return Objects.equals(this.status, apiResult.status) &&
+        Objects.equals(this.data, apiResult.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(status, data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserData {\n");
+    sb.append("class ApiResult {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

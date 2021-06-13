@@ -17,6 +17,22 @@ paths:
             application/json:
               schema: 
                 type: string
+  /validateUserPrediction:
+    get:
+      summary: validate User Prediction.
+      operationId: validateUserPrediction
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: validated User Prediction
+          content:
+            application/json:
+              schema: 
+                type: string
   /getUserDetails:
     get:
       summary: Returns a list of users data.
@@ -47,6 +63,7 @@ paths:
             application/json:
               schema: 
                 type: string
+                  
   /calculateScore:
     get:
       summary: Calculate match scores.
@@ -70,8 +87,8 @@ paths:
           content:
             application/json:
               schema: 
-                type: string
-            
+                $ref: '#/components/schemas/ApiResult'
+
   /getPredictions:
     get:
       summary: Returns a list of predictions.
@@ -82,7 +99,9 @@ paths:
           content:
             application/json:
               schema: 
-                type: string
+                type: array
+                items:
+                  $ref: '#/components/schemas/MatchPredictions'
                 
   /getNextMatchDetails:
     get:
@@ -94,7 +113,7 @@ paths:
           content:
             application/json:
               schema: 
-                type: string
+                $ref: '#/components/schemas/ApiResult'
                   
 components:
   schemas:
@@ -133,3 +152,22 @@ components:
       required:  
         - id
         - name
+
+    ApiResult:
+      properties:
+        status:
+          type: integer
+        data:
+          type: array
+          items:
+            type: object
+    
+    MatchPredictions:
+      properties:
+        match:
+          type: object
+        predictions:
+          type: array
+          items:
+            type: object
+            

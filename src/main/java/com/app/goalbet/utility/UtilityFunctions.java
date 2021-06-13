@@ -1,6 +1,14 @@
 package com.app.goalbet.utility;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+
 public class UtilityFunctions {
+	
+	LocalDateTime convertToUtc(LocalDateTime time) {
+	    return time.atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
+	}
 	
 	public static String addQueryParam(String url, String param, String value) {
 		String resultUrl = url + "?" + param + "=" + value;
@@ -8,7 +16,7 @@ public class UtilityFunctions {
 	}
 	
 	public static String addQueryIdentifier(String url, String value) {
-		String resultUrl = url + "/identifier" + "/" + value;
+		String resultUrl = url + "?_id=" + value;
 		return resultUrl;
 	}
 
