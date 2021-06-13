@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * PredictionDetails
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-12T22:35:00.418803500+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-13T17:03:36.359386+05:30[Asia/Calcutta]")
 public class PredictionDetails   {
   @JsonProperty("matchId")
   private String matchId = null;
