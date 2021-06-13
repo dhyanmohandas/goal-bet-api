@@ -47,6 +47,7 @@ paths:
             application/json:
               schema: 
                 type: string
+                  
   /calculateScore:
     get:
       summary: Calculate match scores.
@@ -82,7 +83,9 @@ paths:
           content:
             application/json:
               schema: 
-                type: string
+                type: array
+                items:
+                  $ref: '#/components/schemas/MatchPredictions'
                 
   /getNextMatchDetails:
     get:
@@ -142,3 +145,13 @@ components:
           type: array
           items:
             type: object
+    
+    MatchPredictions:
+      properties:
+        match:
+          type: object
+        predictions:
+          type: array
+          items:
+            type: object
+            

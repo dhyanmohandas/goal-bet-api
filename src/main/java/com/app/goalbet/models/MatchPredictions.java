@@ -12,62 +12,62 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * ApiResult
+ * MatchPredictions
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-06-13T20:56:48.792928500+05:30[Asia/Calcutta]")
-public class ApiResult   {
-  @JsonProperty("status")
-  private Integer status = null;
+public class MatchPredictions   {
+  @JsonProperty("match")
+  private Object match = null;
 
-  @JsonProperty("data")
+  @JsonProperty("predictions")
   @Valid
-  private List<Object> data = null;
+  private List<Object> predictions = null;
 
-  public ApiResult status(Integer status) {
-    this.status = status;
+  public MatchPredictions match(Object match) {
+    this.match = match;
     return this;
   }
 
   /**
-   * Get status
-   * @return status
+   * Get match
+   * @return match
   **/
   @ApiModelProperty(value = "")
   
-    public Integer getStatus() {
-    return status;
+    public Object getMatch() {
+    return match;
   }
 
-  public void setStatus(Integer status) {
-    this.status = status;
+  public void setMatch(Object match) {
+    this.match = match;
   }
 
-  public ApiResult data(List<Object> data) {
-    this.data = data;
+  public MatchPredictions predictions(List<Object> predictions) {
+    this.predictions = predictions;
     return this;
   }
 
-  public ApiResult addDataItem(Object dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<Object>();
+  public MatchPredictions addPredictionsItem(Object predictionsItem) {
+    if (this.predictions == null) {
+      this.predictions = new ArrayList<Object>();
     }
-    this.data.add(dataItem);
+    this.predictions.add(predictionsItem);
     return this;
   }
 
   /**
-   * Get data
-   * @return data
+   * Get predictions
+   * @return predictions
   **/
   @ApiModelProperty(value = "")
   
-    public List<Object> getData() {
-    return data;
+    public List<Object> getPredictions() {
+    return predictions;
   }
 
-  public void setData(List<Object> data) {
-    this.data = data;
+  public void setPredictions(List<Object> predictions) {
+    this.predictions = predictions;
   }
 
 
@@ -79,23 +79,23 @@ public class ApiResult   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApiResult apiResult = (ApiResult) o;
-    return Objects.equals(this.status, apiResult.status) &&
-        Objects.equals(this.data, apiResult.data);
+    MatchPredictions matchPredictions = (MatchPredictions) o;
+    return Objects.equals(this.match, matchPredictions.match) &&
+        Objects.equals(this.predictions, matchPredictions.predictions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data);
+    return Objects.hash(match, predictions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApiResult {\n");
+    sb.append("class MatchPredictions {\n");
     
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    match: ").append(toIndentedString(match)).append("\n");
+    sb.append("    predictions: ").append(toIndentedString(predictions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

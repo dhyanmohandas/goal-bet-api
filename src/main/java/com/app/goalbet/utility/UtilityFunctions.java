@@ -16,7 +16,7 @@ public class UtilityFunctions {
 	}
 	
 	public static String addQueryIdentifier(String url, String value) {
-		String resultUrl = url + "/identifier" + "/" + value;
+		String resultUrl = url + "?_id=" + value;
 		return resultUrl;
 	}
 

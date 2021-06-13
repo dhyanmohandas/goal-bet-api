@@ -19,6 +19,7 @@ import com.app.goalbet.api.InfoApi;
 import com.app.goalbet.api.PredictGoalApi;
 import com.app.goalbet.models.ApiResponse;
 import com.app.goalbet.models.ApiResult;
+import com.app.goalbet.models.MatchPredictions;
 import com.app.goalbet.models.PredictionDetails;
 import com.app.goalbet.models.UserData;
 import com.app.goalbet.service.GoalBetService;
@@ -50,7 +51,7 @@ public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, 
 	}
 
 	@Override
-	public ResponseEntity<String> getPredictions() {
+	public ResponseEntity<List<MatchPredictions>> getPredictions() {
 		return goalBetService.getPredictions();
 	}
 
