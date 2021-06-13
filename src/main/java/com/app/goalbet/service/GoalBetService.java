@@ -2,6 +2,7 @@ package com.app.goalbet.service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,7 +69,10 @@ public class GoalBetService {
 	}
 	
 	public ResponseEntity<ApiResult> getNextMatchDetails() {
-		LocalDate lt = LocalDate.now();
+		LocalDate lt = LocalDate.now(ZoneId.of("Asia/Kolkata"));
+		System.out.print("=======================");
+		System.out.print(lt.toString());
+		
 		String url = UtilityFunctions.addQueryParam(CommonConstants.DB_BASE_URL + CommonConstants.MATCH_STORE_ID, "Date" , lt.toString());
 		return collectionHelper.getAPIResponse(url, CommonConstants.MATCH_API_KEY);
 	}
@@ -91,8 +95,6 @@ public class GoalBetService {
 			String url = UtilityFunctions.addQueryParam(CommonConstants.DB_BASE_URL + CommonConstants.PREDICTION_STORE_ID,
 					"matchId",BeanUtils.getProperty(matchDetails.getBody().getData().get(i),"_id"));
 			ResponseEntity<ApiResult> predictions = collectionHelper.getAPIResponse(url + "&userId=" + userId, CommonConstants.PREDICTION_API_KEY);
-			System.out.print("=========================");
-			System.out.print(predictions.getBody().getData().toString());
 			if(predictions.getBody().getData().size()==0) {
 				return new ResponseEntity<String>(HttpStatus.FORBIDDEN);
 			}
