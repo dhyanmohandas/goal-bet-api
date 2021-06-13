@@ -15,18 +15,18 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.app.goalbet.models.ApiResponse;
+import com.app.goalbet.models.ApiResult;
 import com.app.goalbet.models.PredictionDetails;
 
 
 @Component
 public class RestApiUtility {
 	
-	public ResponseEntity<ApiResponse> getRestTemplate(String url, HttpMethod httpMethod, String apiKey) {
+	public ResponseEntity<ApiResult> getRestTemplate(String url, HttpMethod httpMethod, String apiKey) {
 		RestTemplate restTemplate = getRestTemplate();
 		HttpHeaders headers = getHttpHeaders(apiKey);
 		HttpEntity<String> entity = new HttpEntity<String>(headers);
-		ResponseEntity<ApiResponse> response = restTemplate.exchange(url, httpMethod, entity, ApiResponse.class);
+		ResponseEntity<ApiResult> response = restTemplate.exchange(url, httpMethod, entity, ApiResult.class);
 		return response;
 	}
 	public ResponseEntity<String> getRestTemplateResponse(String url, HttpMethod httpMethod, String apiKey) {

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import com.app.goalbet.models.ApiResponse;
+import com.app.goalbet.models.ApiResult;
 import com.app.goalbet.models.PredictionDetails;
 import com.app.goalbet.utility.RestApiUtility;
 
@@ -18,15 +19,13 @@ public class CollectionHelper {
 	RestApiUtility restApiUtility;
 
 
-	public ResponseEntity<ApiResponse> getAPIResponse(String url, String apiKey) {
-		System.out.println("Get Predictions from collection");
-		ResponseEntity<ApiResponse> response = restApiUtility.getRestTemplate(url, 
+	public ResponseEntity<ApiResult> getAPIResponse(String url, String apiKey) {
+		ResponseEntity<ApiResult> response = restApiUtility.getRestTemplate(url, 
 				HttpMethod.GET, apiKey);
 		System.out.print(response);	
 		return response;
 	}
 	public ResponseEntity<String> getAPI(String url, String apiKey) {
-		System.out.println("Get Predictions from collection");
 		ResponseEntity<String> response = restApiUtility.getRestTemplateResponse(url, 
 				HttpMethod.GET, apiKey);
 		System.out.print(response);	

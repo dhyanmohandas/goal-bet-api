@@ -17,13 +17,15 @@ import com.app.goalbet.api.GetPredictionsApi;
 import com.app.goalbet.api.GetUserDetailsApi;
 import com.app.goalbet.api.InfoApi;
 import com.app.goalbet.api.PredictGoalApi;
+import com.app.goalbet.models.ApiResponse;
+import com.app.goalbet.models.ApiResult;
 import com.app.goalbet.models.PredictionDetails;
 import com.app.goalbet.models.UserData;
 import com.app.goalbet.service.GoalBetService;
 
 
 @RestController
-public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi{
+public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, InfoApi, PredictGoalApi, GetPredictionsApi, GetNextMatchDetailsApi {
 
 	@Override
 	 public ResponseEntity<List<UserData>> getUserDetails(){
@@ -43,8 +45,8 @@ public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, 
 	@Override
 	@CrossOrigin
 	public ResponseEntity<String> predictGoalPost(@Valid PredictionDetails predictionDetails) {
-		goalBetService.insertPredictions(predictionDetails);
-		return new ResponseEntity<String>(HttpStatus.OK);
+		String result = goalBetService.insertPredictions(predictionDetails);
+		return ResponseEntity.ok(result);
 	}
 
 	@Override
@@ -53,13 +55,13 @@ public class GoalBetController implements CalculateScoreApi, GetUserDetailsApi, 
 	}
 
 	@Override
-	public ResponseEntity<String> getNextMatchDetails() {
+	public ResponseEntity<ApiResult> getNextMatchDetails() {
 		return goalBetService.getNextMatchDetails();
 	}
 
 	@Override
-	public ResponseEntity<String> calculateScore(@Valid String matchId, @Valid Integer team1, @Valid Integer team2) {
-		return new ResponseEntity<String>(HttpStatus.OK);
+	public ResponseEntity<ApiResult> calculateScore(@Valid String matchId, @Valid Integer team1, @Valid Integer team2) {
+		return new ResponseEntity<ApiResult>(HttpStatus.OK);
 	}
 
 

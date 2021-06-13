@@ -70,8 +70,8 @@ paths:
           content:
             application/json:
               schema: 
-                type: string
-            
+                $ref: '#/components/schemas/ApiResult'
+
   /getPredictions:
     get:
       summary: Returns a list of predictions.
@@ -94,7 +94,7 @@ paths:
           content:
             application/json:
               schema: 
-                type: string
+                $ref: '#/components/schemas/ApiResult'
                   
 components:
   schemas:
@@ -133,3 +133,12 @@ components:
       required:  
         - id
         - name
+
+    ApiResult:
+      properties:
+        status:
+          type: integer
+        data:
+          type: array
+          items:
+            type: object
