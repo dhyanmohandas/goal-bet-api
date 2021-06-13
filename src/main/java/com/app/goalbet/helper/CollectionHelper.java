@@ -22,20 +22,16 @@ public class CollectionHelper {
 	public ResponseEntity<ApiResult> getAPIResponse(String url, String apiKey) {
 		ResponseEntity<ApiResult> response = restApiUtility.getRestTemplate(url, 
 				HttpMethod.GET, apiKey);
-		System.out.print(response);	
 		return response;
 	}
 	public ResponseEntity<String> getAPI(String url, String apiKey) {
 		ResponseEntity<String> response = restApiUtility.getRestTemplateResponse(url, 
-				HttpMethod.GET, apiKey);
-		System.out.print(response);	
+				HttpMethod.GET, apiKey);	
 		return response;
 	}
 	
 	public void insertPredictions(String url, String apiKey, PredictionDetails predictionDetails) {
-		System.out.println("Insert Predictions from collection");
 		ResponseEntity<String> response = restApiUtility.postRestTemplateResponse(url, 
 				HttpMethod.POST, apiKey, predictionDetails);
-		System.out.print(response);
 	}
 }
